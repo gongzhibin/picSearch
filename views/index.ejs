@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>图片内容识别</title>
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <p>基于图片内容的智能搜索系统</p>
+  </div>
+</nav>
+<!--这个空的div是为了预留-->
+<div class="container" style=";height: 50px;margin-top: 120px">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" style="width:869px;margin: 0 auto 30px;margin-left: 112px;font-size: 20px">
+    <li role="presentation" class="active"><a href="#singleImgDemo" role="tab" data-toggle="tab">&nbsp;&nbsp;识别图片内容演示&nbsp;&nbsp;</a></li>
+    <li role="presentation"><a href="#systemDemo" role="tab" data-toggle="tab">&nbsp;&nbsp;搜索图片内容系统&nbsp;&nbsp;</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="singleImgDemo">
+      <div class="container show-container">
+        <div class="left">
+          <div class="canvas460">
+            <div class="border">
+              <div class="show-layer">
+                <!--这一层是多余的，可以直接到image-layer，预留为了扩展-->
+                <div class="image-layer" style="background-image: url(/images/origin.jpg)"></div>
+              </div>
+            </div>
+          </div>
+          <div class="fileUpload">
+            <div src="" style="width:100%;height:100%" id="uploadImg">上传待识别的图片</div>
+
+            <input type="file" style="display:none;position:absolute;width:100%;height:100%;top:0;left:0;z-index:1000;opacity:0" id="chooseFile">
+            <!--参考http://www.cnblogs.com/Ricky-Huang/p/5655591.html自定义上传文件样式，在myjs中实现上传文件-->
+          </div>
+          <div id="info" style="color:#fff;margin-top:5px;background:#36ccc1;width: 460px;height: 25px;line-height:25px;border-radius: 4px">
+          </div>
+        </div>
+        <div class="right">
+          <div class="box-border ng-isolate-scope" control="resultObj">
+            <h1>分析结果:</h1>
+            <div><span class="title-confidence">置信度</span><span class="title-tag">标签</span></div>
+            <div class="title-line"></div>
+            <div class="dynamic-rc">
+              <!-- ngRepeat: item in imageRecognizeItems -->
+              <div class="item">
+                <div class="percent" style="width: 49.6%;">
+                  <p>62</p>
+                </div>
+                <div class="name">天空</div>
+              </div>
+              <!-- end ngRepeat: item in imageRecognizeItems -->
+              <div class="item ng-scope" ng-repeat="item in imageRecognizeItems">
+                <div class="percent" ng-style="{'width': item.width}" style="width: 36.8%;">
+                  <p ng-bind="item.percent" class="ng-binding">46</p>
+                </div>
+                <div class="name ng-binding" ng-bind="item.name">树木</div>
+              </div>
+              <!-- end ngRepeat: item in imageRecognizeItems -->
+              <div class="item ng-scope" ng-repeat="item in imageRecognizeItems">
+                <div class="percent" ng-style="{'width': item.width}" style="width: 28%;">
+                  <p ng-bind="item.percent" class="ng-binding">35</p>
+                </div>
+                <div class="name ng-binding" ng-bind="item.name">水</div>
+              </div>
+              <!-- end ngRepeat: item in imageRecognizeItems -->
+              <div class="item ng-scope" ng-repeat="item in imageRecognizeItems">
+                <div class="percent" ng-style="{'width': item.width}" style="width: 20%;">
+                  <p ng-bind="item.percent" class="ng-binding">25</p>
+                </div>
+                <div class="name ng-binding" ng-bind="item.name">湖</div>
+              </div>
+              <!-- end ngRepeat: item in imageRecognizeItems -->
+              <div class="item ng-scope" ng-repeat="item in imageRecognizeItems">
+                <div class="percent" ng-style="{'width': item.width}" style="width: 20%;">
+                  <p ng-bind="item.percent" class="ng-binding">25</p>
+                </div>
+                <div class="name ng-binding" ng-bind="item.name">房屋</div>
+              </div>
+              <!-- end ngRepeat: item in imageRecognizeItems -->
+              <div class="item ng-scope" ng-repeat="item in imageRecognizeItems">
+                <div class="percent" ng-style="{'width': item.width}" style="width: 16%;">
+                  <p ng-bind="item.percent" class="ng-binding">20</p>
+                </div>
+                <div class="name ng-binding" ng-bind="item.name">云</div>
+              </div>
+              <!-- end ngRepeat: item in imageRecognizeItems -->
+              <div class="item ng-scope" ng-repeat="item in imageRecognizeItems">
+                <div class="percent" ng-style="{'width': item.width}" style="width: 9.6%;">
+                  <p ng-bind="item.percent" class="ng-binding">12</p>
+                </div>
+                <div class="name ng-binding" ng-bind="item.name">高楼</div>
+              </div>
+              <!-- end ngRepeat: item in imageRecognizeItems -->
+              <div class="item ng-scope" ng-repeat="item in imageRecognizeItems">
+                <div class="percent" ng-style="{'width': item.width}" style="width: 9.6%;">
+                  <p ng-bind="item.percent" class="ng-binding">12</p>
+                </div>
+                <div class="name ng-binding" ng-bind="item.name">河</div>
+              </div>
+              <!-- end ngRepeat: item in imageRecognizeItems -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="systemDemo">
+      <div class="container show-search-container">
+        <div class="searchForm">
+          <div class="col-sm-7 col-sm-offset-2">
+            <input type="text" class="form-control formHeight" id="searchInfo" value="天空" placeholder="请输入查询信息" name="searchInfo" autofocus>
+          </div>
+          <div class="col-sm-1">
+            <button class="btn btn-default" id="searchButton" >查询</button>
+          </div>
+        </div>
+        <div class="img-show-header ">
+          <span>搜索结果:</span>
+        </div>
+        <!--这里放很多张图片-->
+        <div class="img-list" id="imageList">
+          <!--如果只有一张图片就加.center-->
+          <div class="canvas440">
+            <div class="border">
+              <div class="show-layer" >
+                <!--这一层是多余的，可以直接到image-layer，预留为了扩展-->
+                <div><span>置信度为：62</span></div>
+                <div class="image-layer" style="background-image: url(./images/origin.jpg)"></div>
+              </div>
+            </div>
+          </div>
+          <div class="canvas440">
+            <div class="border">
+              <div class="show-layer" >
+                <!--这一层是多余的，可以直接到image-layer，预留为了扩展-->
+                <div><span>置信度为：62</span></div>
+                <div class="image-layer" style="background-image: url(./images/origin.jpg)"></div>
+              </div>
+            </div>
+          </div>
+          <div class="canvas440">
+            <div class="border">
+              <div class="show-layer" >
+                <!--这一层是多余的，可以直接到image-layer，预留为了扩展-->
+                <div><span>置信度为：62</span></div>
+                <div class="image-layer" style="background-image: url(./images/origin.jpg)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+  </div>
+<script src="/jquery/jquery-1.10.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/myjs.js"></script>
+</body>
+
+</html>

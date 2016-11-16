@@ -1,0 +1,245 @@
+.navbar{
+  height:80px;
+}
+/*导航标题*/
+.navbar p{
+  color:#fff;
+  font-family: PingFangSC-Regular,'helvetica neue','hiragino sans gb', 'microsoft yahei', tahoma,'microsoft yahei ui', simsun,sans-serif;
+  font-size: 30px;
+  line-height: 80px;
+  text-align: center;
+}
+/*整个内容区*/
+.show-container {
+  position: relative;
+  height: 568px;
+  width: 950px;
+}
+/*左边区*/
+.show-container .left {
+  position: relative;
+  width: 460px;
+  /*left:20px;*/
+  float: left;
+}
+.canvas460 {
+  position: relative;
+  display: block;
+  width: 460px;
+  height:460px;
+}
+.canvas440 {
+  position: relative;
+  display: block;
+  width: 440px;
+  height:440px;
+
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.border {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: #d2d2de 1px solid;
+  background: #f8f8f8;
+}
+.show-layer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.image-layer {
+  /*这个背景可以变，用js*/
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+
+.fileUpload {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: #3688ff;
+}
+.fileUpload:hover{
+  cursor: pointer;
+}
+#uploadImg{
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-weight: 900;
+}
+/*-右边区----------------------------------------*/
+.show-container .right {
+  position: relative;
+  margin-left: 10px;
+  width: 400px;
+  height: 530px;
+  /*    right:20px;
+      top:10px;*/
+  float: left;
+  background: #f8f8f8;
+  border: #d2d2de 1px solid;
+}
+.show-container .right h1 {
+  color: #17dfa0;
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.show-container .right .title-confidence{
+  color: #17dfa0;
+  font-size: 18px;
+  font-weight: normal;
+  margin-left: 34px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.show-container .right .title-tag{
+  position: absolute;
+  color: #17dfa0;
+  font-size: 18px;
+  font-weight: normal;
+  right: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+}
+
+.show-container .right .dynamic-rc{
+  margin-top: 17px;
+  margin-right: 20px;
+  width: 100%;
+  height: 449px;
+}
+
+.show-container .right .item{
+  position: relative;
+  width: 100%;
+  height: 24px;
+  margin-bottom: 17px;
+}
+
+.show-container .right .percent {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  float: left;
+  color: #00a06d;
+  font-size: 16px;
+  font-weight: normal;
+  width: 265px;
+  height: 100%;
+  overflow:hidden;
+  background: #85f2d0;
+}
+
+.show-container .right .percent p {
+  width: 100px;
+  height: 24px;
+  line-height: 24px;
+  margin-left: 18px;
+  position: absolute;
+}
+
+.show-container .right .name {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  color: #17dfa0;
+  font-size: 16px;
+  width: 80px;
+  height: 24px;
+  text-align: right;
+}
+/*虚点线条*/
+.show-container .right .title-line{
+  width: 340px;
+  height: 1px;
+  margin-left: 30px;
+  margin-top: 5px;
+  background-image: url("../img/line.png");
+  background-repeat: repeat-x;
+}
+/*----------------------搜索----------------------------------------------*/
+/*整个内容区*/
+.show-search-container {
+  position: relative;
+  height: 568px;
+  width: 950px;
+}
+/*搜索区*/
+.searchForm{
+  margin-top:30px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+.center {
+  /*width: auto;*/
+  /*display: table;*/
+  margin-left: auto;
+  margin-right: auto;
+}
+.text-center {
+  text-align: center;
+}
+
+.img-show{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /*border-top:#d2d2de 1px solid;*/
+}
+.img-show-header {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  text-align: left;
+  border-bottom: solid 2px #00923D;
+  line-height: 1;
+}
+.img-show-header span {
+  margin-top: 10px;
+  letter-spacing: 1px;
+  border-radius: 3px 3px 0 0;
+  padding: 4px 10px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #00923D;
+}
+.tag_confidence{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/**/
+.img-list{
+/*  position: relative;
+  width: 940px;*/
+}
